@@ -1,25 +1,27 @@
 // 07. 写一个函数找出一个整数数组中，第二大的数。
-
+// 这是一个不改变原数组的解法
 #include <iostream>
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	const int n = 3;
-	int a[n], max = 0, max2 = 0;
-	for (int i = 0; i < n; ++i)
+	int a[5]={9,7,7},min = a[0];
+	for(int i=0;i<5;i++)
 	{
-		cin >> a[i];
+		if(a[i]<min) min = a[i];
 	}
-	for (int j = 0; j < n; ++j)
+	int max=min,second=min;
+	for(int i=0;i<5;i++)
 	{
-		if (a[j] > max)
+		if(a[i]>max)
 		{
-			max2 = max;
-			max = a[j];
+			second = max;
+			max = a[i];
+		}else if(a[i]>second &&a[i]!=max)
+		{
+			second = a[i];
 		}
 	}
-	cout << "the second largest number is " << max2 << endl;
-	
+	 cout << second;
 	return 0;
 }
